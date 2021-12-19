@@ -27,27 +27,29 @@ while running:
     if user_input == "a":
         new_item = input("Please enter your TODO item ")
 
-        if len(new_item) > 0 and type(new_item) == str:
+        if len(new_item) > 0 and type(new_item) is str:
             todo_list.append(new_item)
             show_list()
         else:
             print("Wrong value...")
+        continue
 
-    elif user_input == "d":
+    if user_input == "d":
         show_list()
         remove_item = input("Please enter your TODO to delete it ")
 
-        if len(remove_item) > 0 and type(remove_item) == str:
+        if len(remove_item) > 0 and type(remove_item) is str:
             try:
                 todo_list.remove(remove_item)
                 show_list()
             except:
                 print("Invalid value...")
+         continue
 
-    elif user_input == "u":
+    if user_input == "u":
         update_item = input("Enter your item to update it ")
 
-        if len(update_item) > 0 and type(update_item) == str:
+        if len(update_item) > 0 and type(update_item) is str:
             try:
                 item_idx = todo_list.index(update_item)
                 if item_idx >= 0:
@@ -61,12 +63,14 @@ while running:
                 print("Invalid value...2")
         else:
             print("Invalid value...")
+        continue
 
-    elif user_input == "l":
+    if user_input == "l":
         show_list()
+        continue
 
-    elif user_input == "e":
+    if user_input == "e":
         running = False
-
-    else:
-        print("Invalid action, try again")
+        continue
+        
+    print("Invalid action, try again")
